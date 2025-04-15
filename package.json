@@ -5,6 +5,7 @@
   "main": "src/client.js",
   "directories": {},
   "dependencies": {
+    "@haverstack/axios-fetch-adapter": "^0.12.0",
     "axios": "^0.21.2",
     "uuid": "^3.3.3"
   },

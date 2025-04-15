@@ -1,11 +1,11 @@
 'use strict';
 
-import constants from './constants';
-import crypto from 'crypto';
-import axios from 'axios';
-import fetchAdapter from '@haverstack/axios-fetch-adapter';
+const constants = require('./constants');
+const crypto = require('crypto');
+const axios = require('axios');
+const fetchAdapter = require('@haverstack/axios-fetch-adapter');
 
-axios.defaults.adapter = fetchAdapter;
+axios.default.adapter = fetchAdapter;
 
 module.exports = {
     signHeaders: signHeaders,

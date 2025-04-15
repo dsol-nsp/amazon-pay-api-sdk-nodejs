@@ -3,9 +3,7 @@
 const constants = require('./constants');
 const crypto = require('crypto');
 const axios = require('axios');
-const fetchAdapter = require('@haverstack/axios-fetch-adapter');
-
-axios.defaults.adapter = fetchAdapter;
+const client = axios.create({ adapter: 'fetch' });
 
 module.exports = {
     signHeaders: signHeaders,
@@ -132,7 +130,7 @@ function sendRequest(options, count) {
 
     return new Promise(function (resolve, reject) {
         setTimeout(function () {
-            axios.request(options).then(response => {
+            client.request(options).then(response => {
                 if (response.status >= 400) {
                     reject(response);
                 } else {

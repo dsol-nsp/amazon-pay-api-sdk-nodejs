@@ -1,13 +1,11 @@
 'use strict';
 
-const constants = require('./constants');
-const crypto = require('crypto');
-const axios = require('axios');
-const fetchAdapter = require('@haverstack/axios-fetch-adapter');
+import constants from './constants';
+import crypto from 'crypto';
+import axios from 'axios';
+import fetchAdapter from '@haverstack/axios-fetch-adapter';
 
-const client = axios.create({
-    adapter: fetchAdapter
-});
+axios.defaults.adapter = fetchAdapter;
 
 module.exports = {
     signHeaders: signHeaders,
@@ -134,7 +132,7 @@ function sendRequest(options, count) {
 
     return new Promise(function (resolve, reject) {
         setTimeout(function () {
-            client.request(options).then(response => {
+            axios.request(options).then(response => {
                 if (response.status >= 400) {
                     reject(response);
                 } else {

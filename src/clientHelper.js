@@ -5,7 +5,7 @@ const crypto = require('crypto');
 const axios = require('axios');
 const fetchAdapter = require('@haverstack/axios-fetch-adapter');
 
-axios.default.adapter = fetchAdapter;
+axios.defaults.adapter = fetchAdapter;
 
 module.exports = {
     signHeaders: signHeaders,

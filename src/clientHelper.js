@@ -3,7 +3,8 @@
 const constants = require('./constants');
 const crypto = require('crypto');
 const axios = require('axios');
-const client = axios.create({ adapter: 'fetch' });
+const fetchAdapter = require('@haverstack/axios-fetch-adapter');
+const client = axios.create({ adapter: fetchAdapter });
 
 module.exports = {
     signHeaders: signHeaders,
